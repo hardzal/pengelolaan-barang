@@ -18,7 +18,7 @@ $db = new Database($dbHost, $username, $password, $dbName);
 
     <!-- Custom fonts for this template-->
     <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
+    <link href="assets/DataTables/datatables.min.css" type="text/css" rel="stylesheet" />
     <!-- Page level plugin CSS-->
     <link href="assets/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
@@ -71,7 +71,7 @@ $db = new Database($dbHost, $username, $password, $dbName);
         <!-- Sidebar -->
         <ul class="sidebar navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="?page=index">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -83,8 +83,6 @@ $db = new Database($dbHost, $username, $password, $dbName);
                 </a>
                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
                     <a class="dropdown-item" href="?page=barang">Data Barang</a>
-                    <a class="dropdown-item" href="#">Grafik</a>
-                    <a class="dropdown-item" href="#">Report</a>
                 </div>
             </li>
         </ul>
@@ -152,10 +150,12 @@ $db = new Database($dbHost, $username, $password, $dbName);
 
     <!-- Custom scripts for all pages-->
     <script src="assets/js/sb-admin.min.js"></script>
+    <script src="assets/DataTables/datatables.min.js"></script>
     <script src="assets/js/app.js" type="text/javascript"></script>
 </body>
-<?php
-$db->connect->close();
-?>
 
 </html>
+<?php
+$db->connect->close();
+// ob_clean();
+?>

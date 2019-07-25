@@ -4,6 +4,7 @@ $('.custom-file-input').on('change', function () {
 });
 
 $(function () {
+    $('#tabelBarang').DataTable();
     $('#tambahBarang').on('click', function (e) {
         e.preventDefault();
         $('.gambar_barang img').remove();

@@ -19,14 +19,24 @@ class Barang
         return $query;
     }
 
+    public function tampil_kapan($start_at, $end_at)
+    {
+        $query = "SELECT * FROM barang WHERE created_at BETWEEN '$start_at' AND '$end_at'";
+        $db = $this->mysqli->connect;
+
+        $query = $db->query($query) or die("Error: " . $db->error);
+
+        return $query;
+    }
+
     public function tambah($data)
     {
         $db = $this->mysqli->connect;
-        $query = "INSERT INTO barang(nama_barang, harga_barang, stok_barang, gambar_barang) VALUES(?, ?, ?, ?)";
+        $query = "INSERT INTO barang(nama_barang, harga_barang, stok_barang, gambar_barang, created_at) VALUES(?, ?, ?, ?, ?)";
 
         $stmt = $db->prepare($query);
 
-        $stmt->bind_param("siis", $data['nama_barang'], $data['harga_barang'], $data['stok_barang'], $data['gambar_barang']);
+        $stmt->bind_param("siiss", $data['nama_barang'], $data['harga_barang'], $data['stok_barang'], $data['gambar_barang'], $data['created_at']);
 
         $stmt->execute();
 
