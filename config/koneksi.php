@@ -2,5 +2,5 @@
 ob_start();
 $username   = "root";
 $password   = "";
-$dbName     = "latihan_db_barang";
+$dbName     = "latihan_db_barangv2";
 $dbHost     = "localhost";
